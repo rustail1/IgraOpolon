@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913f7a9edffec66449f3d143f14540e0, type: 3}
+  m_Name: CoreStateSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Game.CoreStateSettings
+  <FreeRoamCameraPrefab>k__BackingField: {fileID: 11400000, guid: a1995a5caa96470c9b8ff7c1d6642f13, type: 3}
+  <LevelSettings>k__BackingField: {fileID: 11400000, guid: d9650389d51c00540be6cfb2e9105fbd, type: 2}
+  <UGUISettings>k__BackingField: {fileID: 11400000, guid: 4da06b57c2b306e4b934301101fb9d44, type: 2}
+  <BattleUISettings>k__BackingField: {fileID: 11400000, guid: 5f3e9caeb0d543689d08986a20d2b123, type: 2}
+  <CharactersTable>k__BackingField: {fileID: 11400000, guid: 62f294e9b5d1e9841a00c08da175bb70, type: 2}
+  <BaseSettings>k__BackingField: {fileID: 11400000, guid: 95a760fc6c1f2a247996de8eaa2aa799, type: 2}
+  <OutpostsSettings>k__BackingField: {fileID: 11400000, guid: 368433f3ccd61f84c911edb381c496d7, type: 2}
+  <StartSettings>k__BackingField: {fileID: 11400000, guid: 4d6e8f0a1b2c34567890abcdef234567, type: 2}
+  <ConstructionSettings>k__BackingField:
+  - {fileID: 11400000, guid: 0bcbd7f33d56baf48b68ea47a083dd01, type: 2}
+  - {fileID: 11400000, guid: 0b47bac5681a8f448a9ba0db7c3794dd, type: 2}
+  - {fileID: 11400000, guid: 3ef34dc2b301cde46b979410b569eca4, type: 2}
+  - {fileID: 11400000, guid: 377af281b7e071f4f8e10044e5496291, type: 2}

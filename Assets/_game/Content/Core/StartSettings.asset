@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bad1d23ea265ab4bafdf69531b58dd9, type: 3}
+  m_Name: StartSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Game.StartSettings
+  <StartingGold>k__BackingField: 1000
+  <StartingFollowers>k__BackingField: 10
+  <FirstWaveCooldown>k__BackingField: 5
+  <WaveCooldown>k__BackingField: 10
+  <AvailableCharacters>k__BackingField: {fileID: 11400000, guid: 62f294e9b5d1e9841a00c08da175bb70, type: 2}
+  <MaximumPlayerCharactersPerLine>k__BackingField: 5
+  <TeamA>k__BackingField: {fileID: 11400000, guid: 41a3f0b2c5d64e8f9a7b1c3d5e6f7081, type: 2}
+  <TeamB>k__BackingField: {fileID: 11400000, guid: 7e2a4b6c8d0f41a3b5c7d9e1f2a4b6c8, type: 2}
+  <UnitAttackRange>k__BackingField: 1.5
+  <UnitAggroRange>k__BackingField: 8
+  <SpawnLockDuration>k__BackingField: 1.5
+  <MatchDurationSeconds>k__BackingField: 720
+  <PlayerBaseHealth>k__BackingField: 2000
+  <EnemyAltarHealth>k__BackingField: 2000
+  <PortalOpeningDuration>k__BackingField: 1
+  <VictoryPendingDuration>k__BackingField: 2

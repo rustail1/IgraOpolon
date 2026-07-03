@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c53f09f7f3f4843ae4203cc91579edb, type: 3}
+  m_Name: UGUISettings
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UGUISettings
+  <RootPrefab>k__BackingField: {fileID: 5926860086716614846, guid: f8fad9cf2addc894bb9bb16b1470a65a, type: 3}
+  _viewsSettings:
+    _entries:
+    - <Key>k__BackingField: 10
+      <Value>k__BackingField:
+        <ViewPrefab>k__BackingField: {fileID: 5341183995515949296, guid: 5d05ef5eb50717e47961c729ba916c5d, type: 3}
+        <LayerCode>k__BackingField: 10
+        <TestModel>k__BackingField:
+          rid: -2
+    - <Key>k__BackingField: 20
+      <Value>k__BackingField:
+        <ViewPrefab>k__BackingField: {fileID: 3000, guid: 72c7f614ed3c4b0b99dca7ef2f358a7f, type: 3}
+        <LayerCode>k__BackingField: 30
+    - <Key>k__BackingField: 30
+      <Value>k__BackingField:
+        <ViewPrefab>k__BackingField: {fileID: 3000, guid: b4a3e4967e174b44a4e59c3598665477, type: 3}
+        <LayerCode>k__BackingField: 30
+    - <Key>k__BackingField: 40
+      <Value>k__BackingField:
+        <ViewPrefab>k__BackingField: {fileID: 7636014395641815950, guid: 2a4c6e8f0b1d3f5a7c9e1b2d4f6a8c0e, type: 3}
+        <LayerCode>k__BackingField: 30
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

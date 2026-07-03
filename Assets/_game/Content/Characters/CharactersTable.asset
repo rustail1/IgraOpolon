@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68b0068bcb3d3e4a802df87e0417223, type: 3}
+  m_Name: CharactersTable
+  m_EditorClassIdentifier: Assembly-CSharp::Game.CharactersTable
+  <Characters>k__BackingField:
+  - {fileID: 11400000, guid: be5540bb8a7fe0b40aa0ad20486ed401, type: 2}
+  - {fileID: 11400000, guid: d6446dd0be4c9b9409127581c4207f01, type: 2}
