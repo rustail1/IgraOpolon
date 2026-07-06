@@ -15,6 +15,7 @@ namespace Game
         private readonly ReactiveProperty<int> _playerBaseHealth = new();
         private readonly ReactiveProperty<int> _enemyAltarHealth = new();
         private readonly ReactiveProperty<MatchState> _state = new(MatchState.Playing);
+        
 
         public ReadOnlyReactiveProperty<int> SecondsRemaining => _secondsRemaining;
 
@@ -66,24 +67,29 @@ namespace Game
                 return;
             }
 
-            if (_state.CurrentValue != MatchState.PortalOpening && _state.CurrentValue != MatchState.VictoryPending)
-            {
-                return;
-            }
+            if (_state.CurrentValue != MatchState.PortalOpening && _state.CurrentValue != MatchState.VictoryPending) return;
 
             _stateElapsedTime += deltaTime;
-            var duration = _state.CurrentValue == MatchState.PortalOpening
-                ? _settings.PortalOpeningDuration
-                : _settings.VictoryPendingDuration;
-            if (_stateElapsedTime < duration)
-            {
-                return;
-            }
+            var duration = _state.CurrentValue == MatchState.PortalOpening ? _settings.PortalOpeningDuration : _settings.VictoryPendingDuration;
+
+            if (_stateElapsedTime < duration) return;
 
             _stateElapsedTime = 0f;
-            _state.Value = _state.CurrentValue == MatchState.PortalOpening
-                ? MatchState.VictoryPending
-                : MatchState.Victory;
+            _state.Value = _state.CurrentValue == MatchState.PortalOpening ? MatchState.VictoryPending : MatchState.Victory;
+
+            if (GameResultWindow.Instance != null)
+            {
+                if (_state.Value == MatchState.Victory)
+                {
+                    GameResultWindow.Instance.gameObject.SetActive(true);
+                    GameResultWindow.Instance.SetText("You win!");
+                }
+                else if (_state.Value == MatchState.Defeat)
+                {
+                    GameResultWindow.Instance.gameObject.SetActive(true);
+                    GameResultWindow.Instance.SetText("You lose!");
+                }
+            }           
         }
 
         public void ApplyDamage(OutpostTeam targetTeam, int damage)

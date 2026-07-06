@@ -34,5 +34,7 @@ public class PauseComponent : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
+
+        if (GameResultWindow.Instance != null && GameResultWindow.Instance.gameObject.activeSelf) gameObject.SetActive(false);
     }
 }
