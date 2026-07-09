@@ -1,19 +1,24 @@
 fileFormatVersion: 2
-guid: 3fad2dd223c6b544c9d75eebdd821616
+guid: cb32d20ad35aea943b2e5b81d286bc04
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 6625ca5714e64c24ea3ca0a380d919f4, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Image_0
-    second: {fileID: 2800000, guid: f79fd3d68c0b00248befee12188b4c6b, type: 3}
+    second: {fileID: 2800000, guid: 4ac6f4093d0b7eb4a87ed9aa6ed05d35, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Image_2
-    second: {fileID: 2800000, guid: 2f06eb05c13881648b8ac301482b33dc, type: 3}
+    second: {fileID: 2800000, guid: 076459478d2cbfe4d8f783bf2827ec85, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -81,8 +86,8 @@ ModelImporter:
     useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 30
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
