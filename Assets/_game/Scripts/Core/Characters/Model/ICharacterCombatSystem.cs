@@ -17,5 +17,7 @@ namespace Game
             OutpostTeam objectiveTeam);
 
         void ContinueMovement(CharacterView characterView, OutpostView destinationOutpost);
+
+        void ApplyDamage(CharacterView target, int damage);
     }
 }

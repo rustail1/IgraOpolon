@@ -8,7 +8,14 @@ public class MusicPlayer : MonoBehaviour
     [HideInInspector] public AudioSource AudioSource;
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         AudioSource = GetComponent<AudioSource>();
         AudioSource.loop = true;
         PlayMainMusic();

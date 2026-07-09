@@ -77,19 +77,16 @@ namespace Game
             _stateElapsedTime = 0f;
             _state.Value = _state.CurrentValue == MatchState.PortalOpening ? MatchState.VictoryPending : MatchState.Victory;
 
-            if (GameResultWindow.Instance != null)
+            if (_state.Value == MatchState.Victory)
             {
-                if (_state.Value == MatchState.Victory)
-                {
-                    GameResultWindow.Instance.gameObject.SetActive(true);
-                    GameResultWindow.Instance.SetText("You win!");
-                }
-                else if (_state.Value == MatchState.Defeat)
-                {
-                    GameResultWindow.Instance.gameObject.SetActive(true);
-                    GameResultWindow.Instance.SetText("You lose!");
-                }
-            }           
+                GameResultWindow.Instance.gameObject.SetActive(true);
+                GameResultWindow.Instance.SetText("You win!");
+            }
+            else if (_state.Value == MatchState.Defeat || PlayerBaseHealth.CurrentValue <= 0)
+            {
+                GameResultWindow.Instance.gameObject.SetActive(true);
+                GameResultWindow.Instance.SetText("You lose!");
+            }
         }
 
         public void ApplyDamage(OutpostTeam targetTeam, int damage)

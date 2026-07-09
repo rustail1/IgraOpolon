@@ -43,13 +43,13 @@ namespace Game
         private Vector3 _defaultVisualLocalPosition;
         private Quaternion _defaultVisualLocalRotation;
         private Camera _healthBarCamera;
-        private int _health;
+        
         private int _maximumHealth;
         private float _healthBarVerticalOffset;
         private Color _healthBarColor;
 
         private CharacterModel _characterModel;
-        
+        public int Health;
         private void Awake()
         {
             _defaultVisualLocalPosition = SkeletonRoot.localPosition;
@@ -79,7 +79,7 @@ namespace Game
 
         private void OnGUI()
         {
-            if (_healthBarCamera == null || _health <= 0)
+            if (_healthBarCamera == null || Health <= 0)
             {
                 return;
             }
@@ -91,7 +91,7 @@ namespace Game
                 return;
             }
 
-            var healthRatio = (float)_health / _maximumHealth;
+            var healthRatio = (float)Health / _maximumHealth;
             var positionX = screenPosition.x - _healthBarWidth * 0.5f;
             var positionY = Screen.height - screenPosition.y;
             var backgroundRect = new Rect(positionX, positionY, _healthBarWidth, _healthBarHeight);
@@ -122,7 +122,7 @@ namespace Game
             float verticalOffset)
         {
             _healthBarCamera = camera;
-            _health = health;
+            Health = health;
             _maximumHealth = maximumHealth;
             _healthBarColor = color;
             _healthBarVerticalOffset = verticalOffset;

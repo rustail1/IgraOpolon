@@ -43,7 +43,12 @@ namespace Game
             _battleUISettings = stateSettings.BattleUISettings;
             _startSettings = stateSettings.StartSettings;
         }
+        public static CharacterCombatSystem Instance { get; private set; }
 
+        protected override void OnInitialize()
+        {
+            Instance = this;
+        }
         public void OnUpdate()
         {
             UpdateBaseHealthBars();
@@ -60,7 +65,18 @@ namespace Game
                 UpdateCharacter(characterModel);
             }
         }
+        public void ApplyDamage(CharacterView target, int damage)
+        {
+            if (target == null)
+                return;
 
+            var characterModel = GetCharacterModel(target);
+
+            if (characterModel == null)
+                return;
+
+            ApplyDamage(characterModel, damage);
+        }
         private void TickGroupMerges()
         {
             _remainingGroupMergeCheckTime -= Time.deltaTime;
