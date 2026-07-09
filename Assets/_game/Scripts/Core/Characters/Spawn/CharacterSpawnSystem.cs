@@ -18,6 +18,7 @@ namespace Game
         private ICharacterCombatSystem _characterCombatSystem;
         private bool _isFirstWave = true;
         private float _remainingWaveTime;
+        private System.Random random = new System.Random();
 
         [Inject]
         private void Construct(
@@ -69,29 +70,133 @@ namespace Game
         private void SpawnWave()
         {
             var levelView = _levelsModel.Level.CurrentValue.View;
-            if (!_stateSettings.StartSettings.TeamA.IsActive && !_stateSettings.StartSettings.TeamB.IsActive)
+
+            if (!_stateSettings.StartSettings.TeamA.IsActive &&
+                !_stateSettings.StartSettings.TeamB.IsActive)
             {
                 return;
             }
 
-            SpawnMirroredWave(levelView);
-        }
-
-        private void SpawnMirroredWave(LevelView levelView)
-        {
             foreach (LineCode lineCode in System.Enum.GetValues(typeof(LineCode)))
             {
-                var characterSettings = _playerSquadsModel.TakeQueuedCharacters(lineCode);
-                if (characterSettings.Count == 0)
+                // Волна игрока
+                if (_stateSettings.StartSettings.TeamA.IsActive)
                 {
-                    continue;
+                    var playerCharacters = _playerSquadsModel.TakeQueuedCharacters(lineCode);
+
+                    if (playerCharacters.Count > 0)
+                    {
+                        AddPendingSpawn(
+                            levelView,
+                            lineCode,
+                            OutpostTeam.Player,
+                            playerCharacters);
+                    }
                 }
 
-                AddPendingSpawn(levelView, lineCode, OutpostTeam.Player, characterSettings);
-                AddPendingSpawn(levelView, lineCode, OutpostTeam.Enemy, characterSettings);
+                // Волна врага             
+                for(int i = 0; i < 2; i++)
+                {
+                    var enemyCharacters = GetEnemyWave(lineCode);
+                    if (enemyCharacters.Count > 0 && random.Next(0, 2) == 0)
+                    {
+                        AddPendingSpawn(
+                            levelView,
+                            lineCode,
+                            OutpostTeam.Enemy,
+                            enemyCharacters);
+                    }
+                }
             }
         }
+        private IReadOnlyList<CharacterSettings> GetEnemyWave(LineCode lineCode)
+        {
+            var result = new List<CharacterSettings>();
 
+            if (_stateSettings == null ||
+                _stateSettings.CharactersTable == null ||
+                _stateSettings.CharactersTable.Characters == null)
+            {
+                return result;
+            }
+
+            var units = _stateSettings.CharactersTable.Characters;
+
+            if (units.Length == 0)
+                return result;
+
+            float t = _stateSettings.StartSettings.MatchDurationSeconds -
+                      _matchModel.SecondsRemaining.CurrentValue;
+
+            int weak = 0;
+            int medium = Mathf.Min(1, units.Length - 1);
+            int heavy = Mathf.Min(2, units.Length - 1);
+
+            void Add(int index)
+            {
+                result.Add(units[Mathf.Clamp(index, 0, units.Length - 1)]);
+            }
+
+            if (t < 60)
+            {
+                switch (lineCode)
+                {
+                    case LineCode.Top:
+                        Add(weak);
+                        break;
+                    case LineCode.Mid:
+                        Add(weak);
+                        break;
+                    case LineCode.Bot:
+                        Add(weak);
+                        break;
+                }
+            }
+            else if (t < 120)
+            {
+                switch (lineCode)
+                {
+                    case LineCode.Top:
+                        Add(weak);
+                        Add(medium);
+                        break;
+
+                    case LineCode.Mid:     
+                        Add(weak);
+                        Add(medium);
+                        break;
+
+                    case LineCode.Bot:
+                        Add(weak);
+                        Add(medium);
+                        break;
+                }
+            }
+            else
+            {
+                switch (lineCode)
+                {
+                    case LineCode.Top:
+                        Add(weak);
+                        Add(medium);
+                        Add(heavy);
+                        break;
+
+                    case LineCode.Mid:
+                        Add(weak);
+                        Add(medium);
+                        Add(heavy);
+                        break;
+
+                    case LineCode.Bot:
+                        Add(weak);
+                        Add(medium);
+                        Add(heavy);
+                        break;
+                }
+            }
+            return result;
+        }
         private void ProcessPendingSpawns()
         {
             if (_pendingSpawns.Count == 0)

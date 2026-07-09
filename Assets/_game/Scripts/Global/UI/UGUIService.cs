@@ -19,7 +19,6 @@ namespace Game
         protected override void OnInitialize()
         {
             _root = Object.Instantiate(_settings.RootPrefab);
-            Object.DontDestroyOnLoad(_root.gameObject);
             base.OnInitialize();
         }
 
