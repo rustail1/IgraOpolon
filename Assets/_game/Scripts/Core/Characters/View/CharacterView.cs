@@ -36,6 +36,9 @@ namespace Game
 
         public OutpostTeam Team => _characterModel.Team;
 
+        // ÄÎÁÀÂËÅÍÎ
+        public CharacterModel Model => _characterModel;
+
         public event Action AttackHit;
 
         public event Action AttackEnded;
@@ -43,17 +46,20 @@ namespace Game
         private Vector3 _defaultVisualLocalPosition;
         private Quaternion _defaultVisualLocalRotation;
         private Camera _healthBarCamera;
-        
+
         private int _maximumHealth;
         private float _healthBarVerticalOffset;
         private Color _healthBarColor;
 
         private CharacterModel _characterModel;
+
         public int Health;
+
         private void Awake()
         {
             _defaultVisualLocalPosition = SkeletonRoot.localPosition;
             _defaultVisualLocalRotation = SkeletonRoot.localRotation;
+
             AnimationEvents.OnPunchHit += NotifyAttackHit;
             AnimationEvents.OnPunchEnded += NotifyAttackEnded;
         }
@@ -66,13 +72,19 @@ namespace Game
 
         private void OnDrawGizmos()
         {
-            if (!Application.isPlaying || _characterModel == null || !_characterModel.Navigation.HasDestination)
+            if (!Application.isPlaying ||
+                _characterModel == null ||
+                !_characterModel.Navigation.HasDestination)
             {
                 return;
             }
 
             var destination = _characterModel.Navigation.Destination;
-            Gizmos.color = Team == OutpostTeam.Player ? Color.cyan : Color.red;
+
+            Gizmos.color = Team == OutpostTeam.Player
+                ? Color.cyan
+                : Color.red;
+
             Gizmos.DrawLine(RootTransform.position, destination);
             Gizmos.DrawWireSphere(destination, _characterModel.Navigation.Radius);
         }
@@ -80,26 +92,36 @@ namespace Game
         private void OnGUI()
         {
             if (_healthBarCamera == null || Health <= 0)
-            {
                 return;
-            }
 
-            var worldPosition = RootTransform.position + Vector3.up * _healthBarVerticalOffset;
-            var screenPosition = _healthBarCamera.WorldToScreenPoint(worldPosition);
+            var worldPosition =
+                RootTransform.position + Vector3.up * _healthBarVerticalOffset;
+
+            var screenPosition =
+                _healthBarCamera.WorldToScreenPoint(worldPosition);
+
             if (screenPosition.z <= 0f)
-            {
                 return;
-            }
 
-            var healthRatio = (float)Health / _maximumHealth;
-            var positionX = screenPosition.x - _healthBarWidth * 0.5f;
-            var positionY = Screen.height - screenPosition.y;
-            var backgroundRect = new Rect(positionX, positionY, _healthBarWidth, _healthBarHeight);
-            var healthRect = new Rect(positionX, positionY, _healthBarWidth * healthRatio, _healthBarHeight);
+            float healthRatio = (float)Health / _maximumHealth;
+
+            float positionX = screenPosition.x - _healthBarWidth * 0.5f;
+            float positionY = Screen.height - screenPosition.y;
+
+            Rect backgroundRect =
+                new Rect(positionX, positionY, _healthBarWidth, _healthBarHeight);
+
+            Rect healthRect =
+                new Rect(positionX, positionY,
+                    _healthBarWidth * healthRatio,
+                    _healthBarHeight);
+
             GUI.color = Color.black;
             GUI.DrawTexture(backgroundRect, Texture2D.whiteTexture);
+
             GUI.color = _healthBarColor;
             GUI.DrawTexture(healthRect, Texture2D.whiteTexture);
+
             GUI.color = Color.white;
         }
 
@@ -131,11 +153,11 @@ namespace Game
         public void SetMoving(bool isMoving)
         {
             if (_characterModel == null)
-            {
                 return;
-            }
 
-            Animator.SetFloat(_characterModel.CharacterSettings.AnimationsSettings.SpeedAnimationParameter, isMoving ? 1f : 0f);
+            Animator.SetFloat(
+                _characterModel.CharacterSettings.AnimationsSettings.SpeedAnimationParameter,
+                isMoving ? 1f : 0f);
         }
 
         public void ResetAnimationSpeed()
@@ -146,26 +168,30 @@ namespace Game
         public void PlayAttack()
         {
             if (_characterModel == null)
-            {
                 return;
-            }
 
-            var attackClipLength = _characterModel.CharacterSettings.AnimationsSettings.AttackClipLength;
-            Animator.speed = attackClipLength * _characterModel.CharacterSettings.AttackSpeed;
-            Animator.SetTrigger(_characterModel.CharacterSettings.AnimationsSettings.AttackAnimationTrigger);
+            float attackClipLength =
+                _characterModel.CharacterSettings.AnimationsSettings.AttackClipLength;
+
+            // ÈÑÏÐÀÂËÅÍÎ: ó÷èòûâàþòñÿ áàôôû
+            Animator.speed =
+                attackClipLength * _characterModel.AttackSpeed;
+
+            Animator.SetTrigger(
+                _characterModel.CharacterSettings.AnimationsSettings.AttackAnimationTrigger);
         }
 
         public void PlayDying()
         {
             if (_characterModel == null)
-            {
                 return;
-            }
 
             Animator.speed = 1f;
-            Animator.SetTrigger(_characterModel.CharacterSettings.AnimationsSettings.DyingAnimationTrigger);
+
+            Animator.SetTrigger(
+                _characterModel.CharacterSettings.AnimationsSettings.DyingAnimationTrigger);
         }
-        
+
         public void ResetVisualRoot()
         {
             SkeletonRoot.localPosition = _defaultVisualLocalPosition;
@@ -193,12 +219,17 @@ namespace Game
             var teamSettings = Team == OutpostTeam.Player
                 ? _characterModel.Settings.TeamA
                 : _characterModel.Settings.TeamB;
+
             foreach (var skinnedMeshRenderer in SkinnedMeshRenderers)
             {
                 var materials = skinnedMeshRenderer.sharedMaterials;
+
                 var teamMaterials = new Material[materials.Length + 1];
+
                 Array.Copy(materials, teamMaterials, materials.Length);
+
                 teamMaterials[^1] = teamSettings.Material;
+
                 skinnedMeshRenderer.sharedMaterials = teamMaterials;
             }
         }

@@ -57,6 +57,25 @@ namespace Game
 
         public Action AttackEndedHandler { get; set; }
 
+        // ===== Áàôôû =====
+
+        public float DamageMultiplier { get; set; } = 1f;
+
+        public float AttackSpeedMultiplier { get; set; } = 1f;
+
+        public float MoveSpeedMultiplier { get; set; } = 1f;
+
+        public int Attack =>
+            Mathf.RoundToInt(CharacterSettings.Attack * DamageMultiplier);
+
+        public float AttackSpeed =>
+            CharacterSettings.AttackSpeed * AttackSpeedMultiplier;
+
+        public float Speed =>
+            MovementSpeed * MoveSpeedMultiplier;
+
+        // ==================
+
         public CharacterModel(
             CharacterView view,
             LineView lineView,
@@ -92,6 +111,13 @@ namespace Game
         {
             Group = group;
             GroupSlotIndex = groupSlotIndex;
+        }
+
+        public void ResetBuffs()
+        {
+            DamageMultiplier = 1f;
+            AttackSpeedMultiplier = 1f;
+            MoveSpeedMultiplier = 1f;
         }
     }
 }

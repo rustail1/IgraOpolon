@@ -6,7 +6,7 @@ namespace Game
 {
     public sealed class OutpostView : MonoBehaviour
     {
-        private readonly ReactiveProperty<OutpostTeam> _owner = new(OutpostTeam.None);
+        public readonly ReactiveProperty<OutpostTeam> _owner = new(OutpostTeam.None);
         private readonly ReactiveProperty<OutpostTeam> _capturingTeam = new(OutpostTeam.None);
         private readonly ReactiveProperty<float> _captureElapsedTime = new();
         private readonly ReactiveProperty<int> _captureCompletedRevision = new();

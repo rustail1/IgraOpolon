@@ -19,7 +19,10 @@ namespace Game
         private const int MaximumAvoidancePriority = 99;
 
         private readonly List<CharacterModel> _characterModels = new();
+        public IReadOnlyList<CharacterModel> Characters => _characterModels;
+
         private readonly List<CharacterModel> _groupRepresentatives = new();
+
         private IOutpostsModel _outpostsModel;
         private ICoreLevelsModel _levelsModel;
         private IMatchModel _matchModel;
