@@ -5,8 +5,15 @@ using Whaledevelop.Systems;
 namespace Game
 {
     [GameModel(nameof(GameStateCode.Core))]
-    public sealed class CurrenciesModel : GameModel<CurrenciesModel, ICurrenciesModel>, ICurrenciesModel
+    public sealed class CurrenciesModel
+        : GameModel<CurrenciesModel, ICurrenciesModel>, ICurrenciesModel
     {
+        /// <summary>
+        /// Позволяет получать модель из обычных MonoBehaviour
+        /// (например TowerBuildMenu), которые не создаются VContainer.
+        /// </summary>
+        public static CurrenciesModel Instance { get; private set; }
+
         private CoreStateSettings _stateSettings;
 
         public ReactiveProperty<int> Gold { get; } = new();
@@ -21,25 +28,40 @@ namespace Game
 
         protected override void OnInitialize()
         {
+            Instance = this;
+
             Gold.Value = _stateSettings.StartSettings.StartingGold;
             Followers.Value = _stateSettings.StartSettings.StartingFollowers;
         }
 
+        protected override void OnRelease()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+            }
+        }
+
         public void Add(CurrencyType currencyType, int amount)
         {
-            if (currencyType == CurrencyType.Gold)
+            switch (currencyType)
             {
-                Gold.Value += amount;
+                case CurrencyType.Gold:
+                    Gold.Value += amount;
+                    break;
 
-                return;
+                default:
+                    Followers.Value += amount;
+                    break;
             }
-
-            Followers.Value += amount;
         }
 
         public bool TrySpend(CurrencyType currencyType, int amount)
         {
-            var resource = currencyType == CurrencyType.Gold ? Gold : Followers;
+            ReactiveProperty<int> resource =
+                currencyType == CurrencyType.Gold
+                    ? Gold
+                    : Followers;
 
             if (resource.Value < amount)
             {
@@ -47,7 +69,6 @@ namespace Game
             }
 
             resource.Value -= amount;
-
             return true;
         }
     }
