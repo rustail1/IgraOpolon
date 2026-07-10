@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86570a4b6c04de843b1090a8cfdeada2, type: 3}
+  m_Name: GoldMine
+  m_EditorClassIdentifier: Assembly-CSharp::Game.ConstructionSettings
+  <ConstructionType>k__BackingField: 3
+  <DisplayName>k__BackingField: Gold Mine
+  <Description>k__BackingField: A mine prepared for future gold-production upgrades.
+  <Prefab>k__BackingField: {fileID: 4759309456507516859, guid: 697510a6a432f0e43b9c94674b5e4f5d, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 829ba6da11a1e024c80a008d77c7381e, type: 3}
+  <BuildPrice>k__BackingField: 200
+  <BuildDuration>k__BackingField: 5
+  <UpgradePrice>k__BackingField: 150
+  <BehaviourData>k__BackingField:
+    rid: 7556656940468666463
+  references:
+    version: 2
+    RefIds:
+    - rid: 7556656940468666463
+      type: {class: GoldMineConstructionBehaviour, ns: Game, asm: Assembly-CSharp}
+      data:
+        <Production>k__BackingField:
+          <Amount>k__BackingField: 5
+          <Interval>k__BackingField: 1
+          <CurrencyType>k__BackingField: 0
