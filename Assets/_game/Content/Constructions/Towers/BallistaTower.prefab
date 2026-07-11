@@ -77,6 +77,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Ballista_Mounted_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1920612275663488, guid: fa45baf3a225cbe42b9b9cd43829e3ee, type: 3}
+      propertyPath: m_Name
+      value: Arrow
+      objectReference: {fileID: 0}
     - target: {fileID: 4071784136182596, guid: fa45baf3a225cbe42b9b9cd43829e3ee, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2

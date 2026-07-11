@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
       propertyPath: sounds.Array.data[2]._id
-      value: TowerAttack
+      value: ArrowShoot
       objectReference: {fileID: 0}
     - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
       propertyPath: sounds.Array.data[3]._id
@@ -516,6 +516,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+--- !u!114 &1083936587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+  m_PrefabInstance: {fileID: 1083936586}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2f5f0f693b5094d9fd9bda2a699b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DontDestroyOnLoad
 --- !u!1001 &1447958075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -849,6 +860,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1083936587}
+        m_TargetAssemblyTypeName: SFXPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2472584578489147428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,16 +1101,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1447958077}
-        m_TargetAssemblyTypeName: MusicPlayer, Assembly-CSharp
-        m_MethodName: PlayMainMusic
-        m_Mode: 1
+      - m_Target: {fileID: 1083936587}
+        m_TargetAssemblyTypeName: SFXPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Click
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &4027770471939270553
@@ -1154,6 +1177,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1083936587}
+        m_TargetAssemblyTypeName: SFXPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8085623562720267864}
         m_TargetAssemblyTypeName: ExitGameComponent, Assembly-CSharp
         m_MethodName: ExitGame

@@ -9,6 +9,6 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         transform.position += Direction * Velocity * Time.deltaTime;
-        if (transform.position.y < 0) Destroy(gameObject);
+        if (transform.position.y < -3) Destroy(gameObject);
     }
 }
