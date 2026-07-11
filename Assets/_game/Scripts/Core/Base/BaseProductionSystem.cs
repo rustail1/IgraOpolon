@@ -10,8 +10,8 @@ namespace Game
     {
         private BaseSettings _baseSettings;
         private ICurrenciesModel _resourcesModel;
-        private float _nextBaseProductionTime;
-
+        private float _nextGoldProductionTime;
+        private float _nextFollowerProductionTime;
         [Inject]
         private void Construct(
             BaseSettings baseSettings,
@@ -23,18 +23,28 @@ namespace Game
 
         protected override void OnInitialize()
         {
-            _nextBaseProductionTime = Time.time + _baseSettings.Production.Interval;
+            _nextGoldProductionTime = Time.time + _baseSettings.Production.Interval;
+            _nextFollowerProductionTime = Time.time + _baseSettings.Production.Interval * 10f;  
         }
 
         public void OnUpdate()
         {
-            if (Time.time < _nextBaseProductionTime)
+            if (Time.time < _nextFollowerProductionTime)
             {
                 return;
             }
+            _resourcesModel.Add(CurrencyType.Followers, _baseSettings.Production.Amount);
 
+            float followersProductionIncrease = 1f;
+            if (FollowersHouse.Instance != null) followersProductionIncrease *= 2f;
+            _nextFollowerProductionTime = Time.time + _baseSettings.Production.Interval * 10f / followersProductionIncrease;
+
+            if (Time.time < _nextGoldProductionTime || GoldMine.Instance != null)
+            {
+                return;
+            }
             _resourcesModel.Add(CurrencyType.Gold, _baseSettings.Production.Amount);
-            _nextBaseProductionTime = Time.time + _baseSettings.Production.Interval;
+            _nextGoldProductionTime = Time.time + _baseSettings.Production.Interval;
         }
     }
 }

@@ -16,6 +16,9 @@ namespace Game
 
         public void AddConstruction(IConstructionModel constructionModel)
         {
+            if (!constructionModel.EnoughWorkers()) return;
+
+            CurrenciesModel.Instance.Followers.Value -= constructionModel.NeedWorkers(); 
             _constructions.Add(constructionModel);
             ConstructionAdded?.Invoke(constructionModel);
         }
