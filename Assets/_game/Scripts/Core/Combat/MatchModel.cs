@@ -1,6 +1,6 @@
 using R3;
 using VContainer;
-using Whaledevelop.Systems;
+using UnityEngine;
 
 namespace Game
 {
@@ -51,44 +51,50 @@ namespace Game
                 if (_isTimerExpired)
                 {
                     _state.Value = MatchState.Defeat;
-
-                    return;
                 }
-
-                _remainingTime = System.Math.Max(_remainingTime - deltaTime, 0f);
-                _secondsRemaining.Value = UnityEngine.Mathf.CeilToInt(_remainingTime);
-                if (_remainingTime > 0f)
+                else
                 {
-                    return;
+                    _remainingTime = System.Math.Max(_remainingTime - deltaTime, 0f);
+                    _secondsRemaining.Value = Mathf.CeilToInt(_remainingTime);
+
+                    if (_remainingTime <= 0f)
+                    {
+                        _isTimerExpired = true;
+                        _state.Value = MatchState.Defeat;
+                    }
                 }
-
-                _isTimerExpired = true;
-
-                return;
             }
 
-            if (_state.CurrentValue != MatchState.PortalOpening && _state.CurrentValue != MatchState.VictoryPending) return;
+            if (_state.CurrentValue == MatchState.PortalOpening ||
+                _state.CurrentValue == MatchState.VictoryPending)
+            {
+                _stateElapsedTime += deltaTime;
 
-            _stateElapsedTime += deltaTime;
-            var duration = _state.CurrentValue == MatchState.PortalOpening ? _settings.PortalOpeningDuration : _settings.VictoryPendingDuration;
+                float duration = _state.CurrentValue == MatchState.PortalOpening
+                    ? _settings.PortalOpeningDuration
+                    : _settings.VictoryPendingDuration;
 
-            if (_stateElapsedTime < duration) return;
+                if (_stateElapsedTime >= duration)
+                {
+                    _stateElapsedTime = 0f;
 
-            _stateElapsedTime = 0f;
-            _state.Value = _state.CurrentValue == MatchState.PortalOpening ? MatchState.VictoryPending : MatchState.Victory;
+                    _state.Value = _state.CurrentValue == MatchState.PortalOpening
+                        ? MatchState.VictoryPending
+                        : MatchState.Victory;
+                }
+            }
 
-            if (_state.Value == MatchState.Victory)
+            if (_state.CurrentValue == MatchState.Victory)
             {
                 GameResultWindow.Instance.gameObject.SetActive(true);
                 GameResultWindow.Instance.SetText("You win!");
             }
-            else if (_state.Value == MatchState.Defeat || PlayerBaseHealth.CurrentValue <= 0)
+            else if (_state.CurrentValue == MatchState.Defeat)
             {
                 GameResultWindow.Instance.gameObject.SetActive(true);
                 GameResultWindow.Instance.SetText("You lose!");
             }
         }
-
         public void ApplyDamage(OutpostTeam targetTeam, int damage)
         {
             if (!IsPlaying || damage <= 0)

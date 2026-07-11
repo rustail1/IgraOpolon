@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3231576717020459812}
+  - component: {fileID: 37306676597483655}
   m_Layer: 0
   m_Name: FollowersHouse
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 6470873251956349657}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &37306676597483655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833568098794407106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f824857d0491c4593a384694790fda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowersHouse
 --- !u!1001 &6793558598758841650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,7 +71,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 75bdb9a16c2076e4ea4dd48434be03b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 75bdb9a16c2076e4ea4dd48434be03b6, type: 3}
       propertyPath: m_LocalPosition.z

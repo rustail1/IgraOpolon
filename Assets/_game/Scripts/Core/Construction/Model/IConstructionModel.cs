@@ -19,6 +19,10 @@ namespace Game
 
         void AdvanceBuild(float deltaTime);
 
+        public bool EnoughWorkers();
+
+        public int NeedWorkers();
+
         void Upgrade();
     }
 }

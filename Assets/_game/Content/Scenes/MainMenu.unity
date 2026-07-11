@@ -387,6 +387,130 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[0]._id
+      value: Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[1]._id
+      value: TowerBuild
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[2]._id
+      value: TowerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[3]._id
+      value: LineSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[4]._id
+      value: OutpostCapture
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[5]._id
+      value: Obelisk
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[6]._id
+      value: Victory
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[7]._id
+      value: Defeat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[8]._id
+      value: BuyUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[9]._id
+      value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[10]._id
+      value: OutpostLose
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[11]._id
+      value: WaveStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[12]._id
+      value: BeginBuild
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[13]._id
+      value: EndBuild
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[14]._id
+      value: BaseDamage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[0]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34c7d5a7d3b89224a965e736ac6c5656, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[1]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 148ee288908aa4647bb27dbb1cb234f5, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[2]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 926bf911f026b6e4280d5bd16aac2b7d, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[3]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6110e033ebb6c9b40a52c6f1a4eb9316, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[4]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f0fed99b27653844987db0a3fef6707, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[5]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f1b0e93497b34342825d0eafd188fad, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[6]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dfb92df400535dd4ab33b145b9fdf862, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[7]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c23cb65c8b87e340a98a25d2adf3a69, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[8]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f9f8889e0f5825843976b41ab7d0b009, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[9]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 89d160ff9a6b4424392cd1b06d0bcd9b, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[10]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6019ccfc084918b4e9c3aac32c5888d3, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[11]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e90dc03ad2db9843b8981761471e6ec, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[12]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d5dd93dd7b9108648876edf08a8baaed, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[13]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1dcafe50906d1b64ea48966492472e8d, type: 3}
+    - target: {fileID: 8680739664305745584, guid: 643576b91ed98254dae01bdc2811b560, type: 3}
+      propertyPath: sounds.Array.data[14]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a1dd54e06c43e0740a25dd08709d0505, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -448,8 +572,7 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5926321455345340142, guid: ea62f62815f52d14487dce0ae96f0e91, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -474,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2c327a5f2619d488adc6c8fb09a9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicPlayer
+  menuMusic: {fileID: 8300000, guid: 9d0168c3d0ebef0429f11a01e15312e6, type: 3}
   mainMusic: {fileID: 8300000, guid: 553bf77548363764d975595bffb12009, type: 3}
   AudioSource: {fileID: 0}
 --- !u!1001 &1642046215
@@ -945,6 +1069,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8468789415666646088}
         m_TargetAssemblyTypeName: LoadSceneComponent, Assembly-CSharp
         m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1447958077}
+        m_TargetAssemblyTypeName: MusicPlayer, Assembly-CSharp
+        m_MethodName: PlayMainMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

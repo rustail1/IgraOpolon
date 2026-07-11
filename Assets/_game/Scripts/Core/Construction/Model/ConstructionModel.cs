@@ -21,6 +21,8 @@ namespace Game
 
         public ReadOnlyReactiveProperty<bool> IsBuilt => _isBuilt;
 
+        [SerializeField] private readonly int needWorkers = 5;
+
         public ConstructionModel(
             ConstructionType constructionType,
             ConstructionSettings settings,
@@ -47,11 +49,17 @@ namespace Game
             {
                 return;
             }
-
             _isBuilt.Value = true;
             View.SetActive(true);
         }
-
+        public bool EnoughWorkers()
+        {
+            return CurrenciesModel.Instance.Followers.Value >= needWorkers;
+        }
+        public int NeedWorkers()
+        {
+            return needWorkers;
+        }
         public void Upgrade()
         {
             if (!_isBuilt.Value)

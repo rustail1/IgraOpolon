@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2883141111129977765}
   - component: {fileID: 8334006159810114153}
-  - component: {fileID: 5926321455345340142}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: MusicPlayer
@@ -130,15 +129,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5926321455345340142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227966143632905517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b2c327a5f2619d488adc6c8fb09a9d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SingletonComponent

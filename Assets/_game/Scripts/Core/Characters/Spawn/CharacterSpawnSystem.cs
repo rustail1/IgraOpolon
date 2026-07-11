@@ -51,7 +51,7 @@ namespace Game
 
                 return;
             }
-
+            else 
             ProcessPendingSpawns();
             _remainingWaveTime -= Time.deltaTime;
             _characterWaveModel.SetSecondsUntilNextWave(Mathf.CeilToInt(Mathf.Max(_remainingWaveTime, 0f)));
@@ -95,108 +95,18 @@ namespace Game
                 }
 
                 // Волна врага             
-                for(int i = 0; i < 2; i++)
+                var enemyCharacters = GetEnemyWave(lineCode);
+                if (enemyCharacters.Count > 0 && random.Next(0, 2) == 0)
                 {
-                    var enemyCharacters = GetEnemyWave(lineCode);
-                    if (enemyCharacters.Count > 0 && random.Next(0, 2) == 0)
-                    {
-                        AddPendingSpawn(
-                            levelView,
-                            lineCode,
-                            OutpostTeam.Enemy,
-                            enemyCharacters);
-                    }
+                    AddPendingSpawn(
+                        levelView,
+                        lineCode,
+                        OutpostTeam.Enemy,
+                        enemyCharacters);
                 }
             }
         }
-        private IReadOnlyList<CharacterSettings> GetEnemyWave(LineCode lineCode)
-        {
-            var result = new List<CharacterSettings>();
-
-            if (_stateSettings == null ||
-                _stateSettings.CharactersTable == null ||
-                _stateSettings.CharactersTable.Characters == null)
-            {
-                return result;
-            }
-
-            var units = _stateSettings.CharactersTable.Characters;
-
-            if (units.Length == 0)
-                return result;
-
-            float t = _stateSettings.StartSettings.MatchDurationSeconds -
-                      _matchModel.SecondsRemaining.CurrentValue;
-
-            int weak = 0;
-            int medium = Mathf.Min(1, units.Length - 1);
-            int heavy = Mathf.Min(2, units.Length - 1);
-
-            void Add(int index)
-            {
-                result.Add(units[Mathf.Clamp(index, 0, units.Length - 1)]);
-            }
-
-            if (t < 60)
-            {
-                switch (lineCode)
-                {
-                    case LineCode.Top:
-                        Add(weak);
-                        break;
-                    case LineCode.Mid:
-                        Add(weak);
-                        break;
-                    case LineCode.Bot:
-                        Add(weak);
-                        break;
-                }
-            }
-            else if (t < 120)
-            {
-                switch (lineCode)
-                {
-                    case LineCode.Top:
-                        Add(weak);
-                        Add(medium);
-                        break;
-
-                    case LineCode.Mid:     
-                        Add(weak);
-                        Add(medium);
-                        break;
-
-                    case LineCode.Bot:
-                        Add(weak);
-                        Add(medium);
-                        break;
-                }
-            }
-            else
-            {
-                switch (lineCode)
-                {
-                    case LineCode.Top:
-                        Add(weak);
-                        Add(medium);
-                        Add(heavy);
-                        break;
-
-                    case LineCode.Mid:
-                        Add(weak);
-                        Add(medium);
-                        Add(heavy);
-                        break;
-
-                    case LineCode.Bot:
-                        Add(weak);
-                        Add(medium);
-                        Add(heavy);
-                        break;
-                }
-            }
-            return result;
-        }
+        
         private void ProcessPendingSpawns()
         {
             if (_pendingSpawns.Count == 0)
@@ -335,6 +245,94 @@ namespace Game
                 Team = team;
                 CharacterSettings = characterSettings;
             }
+        }
+        private IReadOnlyList<CharacterSettings> GetEnemyWave(LineCode lineCode)
+        {
+            var result = new List<CharacterSettings>();
+
+            if (_stateSettings == null ||
+                _stateSettings.CharactersTable == null ||
+                _stateSettings.CharactersTable.Characters == null)
+            {
+                return result;
+            }
+
+            var units = _stateSettings.CharactersTable.Characters;
+
+            if (units.Length == 0)
+                return result;
+
+            float t = _stateSettings.StartSettings.MatchDurationSeconds -
+                      _matchModel.SecondsRemaining.CurrentValue;
+
+            int weak = 0;
+            int medium = Mathf.Min(1, units.Length - 1);
+            int heavy = Mathf.Min(2, units.Length - 1);
+
+            void Add(int index)
+            {
+                result.Add(units[Mathf.Clamp(index, 0, units.Length - 1)]);
+            }
+
+            if (t < 60)
+            {
+                switch (lineCode)
+                {
+                    case LineCode.Top:
+                        Add(weak);
+                        break;
+                    case LineCode.Mid:
+                        Add(weak);
+                        break;
+                    case LineCode.Bot:
+                        Add(weak);
+                        break;
+                }
+            }
+            else if (t < 120)
+            {
+                switch (lineCode)
+                {
+                    case LineCode.Top:
+                        Add(weak);
+                        Add(medium);
+                        break;
+
+                    case LineCode.Mid:
+                        Add(weak);
+                        Add(medium);
+                        break;
+
+                    case LineCode.Bot:
+                        Add(weak);
+                        Add(medium);
+                        break;
+                }
+            }
+            else
+            {
+                switch (lineCode)
+                {
+                    case LineCode.Top:
+                        Add(weak);
+                        Add(medium);
+                        Add(heavy);
+                        break;
+
+                    case LineCode.Mid:
+                        Add(weak);
+                        Add(medium);
+                        Add(heavy);
+                        break;
+
+                    case LineCode.Bot:
+                        Add(weak);
+                        Add(medium);
+                        Add(heavy);
+                        break;
+                }
+            }
+            return result;
         }
     }
 }
