@@ -17,7 +17,7 @@ namespace Game
             foreach (var character in _buffer)
             {
                 if (character == null || character.Team != Team) continue;
-
+                SFXPlayer.Instance?.Play("Obelisk");
 
                 var model = character.Model;
 
