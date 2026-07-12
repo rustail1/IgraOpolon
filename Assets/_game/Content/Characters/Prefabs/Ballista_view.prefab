@@ -179,7 +179,7 @@ MonoBehaviour:
   Name: 
   Team: 0
   Damage: 200
-  ShootCoolDown: 1
+  ShootCoolDown: 2
   AttackRange: 100
   ProjectileVelocity: 20
   ProjectilePrefab: {fileID: 8354446357634368121, guid: cf36b6d30c3608842bc38f692737397f, type: 3}

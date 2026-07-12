@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.AthenaTower
   Price: 0
   Name: 
-  Team: 0
+  Team: 1
   Radius: 10
   DamageMultiplier: 1.5
 --- !u!1001 &1715238049177265014
