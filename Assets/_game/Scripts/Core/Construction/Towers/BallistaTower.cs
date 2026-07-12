@@ -11,7 +11,6 @@ namespace Game
         public float ProjectileVelocity = 10f;
         private float _lastShootTime;
         public GameObject ProjectilePrefab;
-        [SerializeField] private Animator animator;
         private void Update()
         {
             if (Time.time < _lastShootTime + ShootCoolDown) return;
@@ -62,8 +61,9 @@ namespace Game
                 }
                 float time = (enemy.transform.position - transform.position).magnitude / ProjectileVelocity;
                 yield return new WaitForSeconds(time);
+
                 CharacterCombatSystem.Instance?.ApplyDamage(enemy, Damage);
-                animator?.Play("Attack");
+               
                 SFXPlayer.Instance.Play("ArrowShoot");
             }      
         }
