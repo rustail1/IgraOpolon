@@ -3,7 +3,7 @@ using Game;
 public class FollowersHouse : MonoBehaviour
 {
     public static FollowersHouse Instance;
-    public OutpostTeam Team = OutpostTeam.Player;
+    [HideInInspector] public OutpostTeam Team = OutpostTeam.Player;
 
     void Awake()
     {
