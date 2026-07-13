@@ -49,19 +49,18 @@ namespace Game
             if (_state.CurrentValue == MatchState.Playing)
             {
                 if (_isTimerExpired)
-                {
-                    _state.Value = MatchState.Defeat;
+                {                
+                    GodHand.Instance.Punch();
                 }
                 else
                 {
                     _remainingTime = System.Math.Max(_remainingTime - deltaTime, 0f);
                     _secondsRemaining.Value = Mathf.CeilToInt(_remainingTime);
-
-                    if (_remainingTime <= 0f)
-                    {
-                        _isTimerExpired = true;
-                        _state.Value = MatchState.Defeat;
-                    }
+                    if (_remainingTime <= 0f) _isTimerExpired = true;
+                }
+                if(GodHand.Instance.IsPunched)
+                {
+                    _state.Value = MatchState.Defeat;
                 }
             }
 
@@ -86,14 +85,17 @@ namespace Game
 
             if (_state.CurrentValue == MatchState.Victory)
             {
+                Time.timeScale = 0f;
                 GameResultWindow.Instance.gameObject.SetActive(true);
                 GameResultWindow.Instance.SetText("You win!");
             }
             else if (_state.CurrentValue == MatchState.Defeat)
             {
+                Time.timeScale = 0f;
                 GameResultWindow.Instance.gameObject.SetActive(true);
                 GameResultWindow.Instance.SetText("You lose!");
             }
+            Debug.Log("Time: " + _stateElapsedTime);
         }
         public void ApplyDamage(OutpostTeam targetTeam, int damage)
         {

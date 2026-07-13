@@ -11,7 +11,6 @@ namespace Game
         public float ProjectileVelocity = 10f;
         private float _lastShootTime;
         public GameObject ProjectilePrefab;
-        [SerializeField] private Animator animator;
         private void Update()
         {
             if (Time.time < _lastShootTime + ShootCoolDown) return;
@@ -52,18 +51,20 @@ namespace Game
 
         private IEnumerator Shoot(CharacterView enemy)
         {
-            if (enemy != null)
+            if (enemy != null && enemy.Team != Team && enemy.Team != OutpostTeam.None)
             {
                 if (ProjectilePrefab?.GetComponent<Projectile>() != null)
                 {
                     var projectile = Instantiate(ProjectilePrefab, transform).GetComponent<Projectile>();
+                    if (projectile == gameObject) Destroy(projectile);
                     projectile.Direction = (enemy.transform.position - transform.position).normalized;
                     projectile.Velocity = ProjectileVelocity;
                 }
                 float time = (enemy.transform.position - transform.position).magnitude / ProjectileVelocity;
                 yield return new WaitForSeconds(time);
+
                 CharacterCombatSystem.Instance?.ApplyDamage(enemy, Damage);
-                animator?.Play("Attack");
+               
                 SFXPlayer.Instance.Play("ArrowShoot");
             }      
         }
