@@ -15,7 +15,7 @@ MonoBehaviour:
   <DisplayName>k__BackingField: Goplit
   <Bio>k__BackingField: 
   <CharacterPrefab>k__BackingField: {fileID: 8174654040986629694, guid: 4251c29ca35873d47b55e07168c61f80, type: 3}
-  <Icon>k__BackingField: {fileID: 21300000, guid: db3579781fd6e9447ba7dc64b73ed0b7, type: 3}
+  <Icon>k__BackingField: {fileID: 1364202110, guid: 3a4b42082f6b4bd4f8d97891c457ee1b, type: 3}
   <AnimationsSettings>k__BackingField:
     _attackClip: {fileID: 7400000, guid: cea9b339c7244414dbe526424f24b029, type: 2}
     <SpeedAnimationParameter>k__BackingField: Speed

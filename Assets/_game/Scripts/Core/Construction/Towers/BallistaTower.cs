@@ -51,11 +51,12 @@ namespace Game
 
         private IEnumerator Shoot(CharacterView enemy)
         {
-            if (enemy != null)
+            if (enemy != null && enemy.Team != Team && enemy.Team != OutpostTeam.None)
             {
                 if (ProjectilePrefab?.GetComponent<Projectile>() != null)
                 {
                     var projectile = Instantiate(ProjectilePrefab, transform).GetComponent<Projectile>();
+                    if (projectile == gameObject) Destroy(projectile);
                     projectile.Direction = (enemy.transform.position - transform.position).normalized;
                     projectile.Velocity = ProjectileVelocity;
                 }

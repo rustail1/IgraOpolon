@@ -11,9 +11,5 @@ public class GameResultWindow : MonoBehaviour
         Instance = this;
         gameObject.SetActive(false);
     }
-    public void SetText(string text)
-    {        
-        ResultLabel.SetText(text);
-        Time.timeScale = 0f;
-    }
+    public void SetText(string text) => ResultLabel.SetText(text);
 }

@@ -23,7 +23,7 @@ MonoBehaviour:
   <UnitAttackRange>k__BackingField: 1.5
   <UnitAggroRange>k__BackingField: 8
   <SpawnLockDuration>k__BackingField: 1.5
-  <MatchDurationSeconds>k__BackingField: 720
+  <MatchDurationSeconds>k__BackingField: 180
   <PlayerBaseHealth>k__BackingField: 2000
   <EnemyAltarHealth>k__BackingField: 2000
   <PortalOpeningDuration>k__BackingField: 1

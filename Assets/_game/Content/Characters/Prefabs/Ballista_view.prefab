@@ -143,10 +143,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8095189960822338998, guid: 99853f009be4ade41a6d51d58199a850, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4130336713291753357}
+      addedObject: {fileID: 8066285546363368912}
     - targetCorrespondingSourceObject: {fileID: 8095189960822338998, guid: 99853f009be4ade41a6d51d58199a850, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8066285546363368912}
+      addedObject: {fileID: 8116144024262239796}
   m_SourcePrefab: {fileID: 100100000, guid: 99853f009be4ade41a6d51d58199a850, type: 3}
 --- !u!4 &4218425713396567537 stripped
 Transform:
@@ -163,7 +163,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8095189960822338998, guid: 99853f009be4ade41a6d51d58199a850, type: 3}
   m_PrefabInstance: {fileID: 2120699233472483890}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4130336713291753357
+--- !u!114 &8066285546363368912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870560239900010372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7c76a1722442668c2e5ba5a492b4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.CharacterViewAnimationEvents
+--- !u!114 &8116144024262239796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,21 +189,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.BallistaTower
   Price: 0
   Name: 
-  Team: 0
+  Team: 1
   Damage: 200
-  ShootCoolDown: 2
-  AttackRange: 100
+  ShootCoolDown: 1
+  AttackRange: 20
   ProjectileVelocity: 20
-  ProjectilePrefab: {fileID: 8354446357634368121, guid: cf36b6d30c3608842bc38f692737397f, type: 3}
---- !u!114 &8066285546363368912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7870560239900010372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed7c76a1722442668c2e5ba5a492b4e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.CharacterViewAnimationEvents
+  ProjectilePrefab: {fileID: 0}

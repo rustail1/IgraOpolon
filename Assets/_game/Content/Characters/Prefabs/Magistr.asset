@@ -15,7 +15,7 @@ MonoBehaviour:
   <DisplayName>k__BackingField: Magistr
   <Bio>k__BackingField: 
   <CharacterPrefab>k__BackingField: {fileID: 4370837018467244676, guid: ad582949f96208d4ca378e2e800a2719, type: 3}
-  <Icon>k__BackingField: {fileID: 184950751378207249, guid: 5dc103686f99ad4479c2c39e98937ca4, type: 3}
+  <Icon>k__BackingField: {fileID: -775577364, guid: 2f955ce7f038fe145b93c01d61088fcf, type: 3}
   <AnimationsSettings>k__BackingField:
     _attackClip: {fileID: 7400000, guid: 4de3f30356df00644998f017164a81fe, type: 2}
     <SpeedAnimationParameter>k__BackingField: Speed
