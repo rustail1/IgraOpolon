@@ -42,14 +42,13 @@ namespace Game
             var queuedCharacters = _queuedCharacters[lineCode];
             if (_characterWaveModel.IsSpawnLocked.CurrentValue ||
                 queuedCharacters.Count >= _startSettings.MaximumPlayerCharactersPerLine ||
-                _currenciesModel.Gold.Value < characterSettings.GoldCost && _currenciesModel.Followers.Value < characterSettings.FollowersCost)
+                _currenciesModel.Gold.Value < characterSettings.GoldCost)
             {
 
                 return false;
             }
 
             _currenciesModel.TrySpend(CurrencyType.Gold, characterSettings.GoldCost);
-            _currenciesModel.TrySpend(CurrencyType.Followers, characterSettings.FollowersCost);
             queuedCharacters.Add(characterSettings);
             _revision.Value++;
 

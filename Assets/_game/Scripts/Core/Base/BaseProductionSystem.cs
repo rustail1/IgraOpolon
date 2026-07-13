@@ -24,7 +24,7 @@ namespace Game
         protected override void OnInitialize()
         {
             _nextGoldProductionTime = Time.time + _baseSettings.Production.Interval;
-            _nextFollowerProductionTime = Time.time + _baseSettings.Production.Interval;  
+            _nextFollowerProductionTime = Time.time + _baseSettings.Production.Interval * 10f;  
         }
 
         public void OnUpdate()
@@ -37,7 +37,7 @@ namespace Game
 
             float followersProductionIncrease = 1f;
             if (FollowersHouse.Instance != null) followersProductionIncrease *= 2f;
-            _nextFollowerProductionTime = Time.time + _baseSettings.Production.Interval / followersProductionIncrease;
+            _nextFollowerProductionTime = Time.time + _baseSettings.Production.Interval * 10f / followersProductionIncrease;
 
             if (Time.time < _nextGoldProductionTime || GoldMine.Instance != null)
             {

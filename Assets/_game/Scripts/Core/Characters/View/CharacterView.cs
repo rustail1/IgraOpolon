@@ -53,7 +53,7 @@ namespace Game
 
         private CharacterModel _characterModel;
 
-        [HideInInspector] public int Health;
+        public int Health;
 
         private void Awake()
         {

@@ -17,6 +17,8 @@ namespace Game
             foreach (var character in _buffer)
             {
                 if (character == null || character.Team != Team) continue;
+
+
                 var model = character.Model;
 
                 float sqrDistance = (character.transform.position - transform.position).sqrMagnitude;
