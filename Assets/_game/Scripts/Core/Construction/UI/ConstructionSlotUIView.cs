@@ -8,8 +8,8 @@ namespace Game
     {
         private const float PositionStabilityThreshold = 0.1f;
         private const int RequiredStablePositionFrames = 2;
-        private const string BuildingText = "Building...";
-        private const int BuildingTextFontSize = 24;
+        private const string BuildingText = "Стр-во";
+        private const int BuildingTextFontSize = 26;
 
         [SerializeField]
         private RectTransform _rectTransform;

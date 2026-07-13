@@ -373,7 +373,6 @@ GameObject:
   - component: {fileID: 3336406763361206795}
   - component: {fileID: 4443128162885225856}
   - component: {fileID: 4910505463180855142}
-  - component: {fileID: 3139618704349190829}
   m_Layer: 0
   m_Name: Ballista_Unit
   m_TagString: Untagged
@@ -476,7 +475,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -503,26 +502,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3139618704349190829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8095189960822338998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b969a0a68c949459be389626ba7141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.BallistaTower
-  Price: 0
-  Name: 
-  Team: 1
-  Damage: 200
-  ShootCoolDown: 1
-  AttackRange: 30
-  ProjectileVelocity: 30
-  ProjectilePrefab: {fileID: 8354446357634368121, guid: cf36b6d30c3608842bc38f692737397f, type: 3}
 --- !u!1 &8655343560873727966
 GameObject:
   m_ObjectHideFlags: 0
